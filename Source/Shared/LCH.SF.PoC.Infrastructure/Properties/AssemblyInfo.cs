@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LCH.SF.Tests")]
+[assembly: AssemblyTitle("LCH.SF.PoC.Infrastructure")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LCH.SF.Tests")]
+[assembly: AssemblyProduct("LCH.SF.PoC.Infrastructure")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6e8fc917-f265-49d0-9394-0cd7c618f8f7")]
+[assembly: Guid("0ba31506-a079-4323-bf0d-ed399b274055")]
 
 // Version information for an assembly consists of the following four values:
 //
