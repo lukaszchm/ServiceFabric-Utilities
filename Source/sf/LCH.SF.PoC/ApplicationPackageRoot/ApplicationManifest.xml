@@ -1,28 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="LCH.SF.PoCType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="WhishListActorService_PartitionCount" DefaultValue="10" />
-    <Parameter Name="WhishListActorService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="WhishListActorService_TargetReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="DummyActorService_PartitionCount" DefaultValue="10" />
-    <Parameter Name="DummyActorService_MinReplicaSetSize" DefaultValue="1" />
-    <Parameter Name="DummyActorService_TargetReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="DeviceSensorActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="DeviceSensorActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="DeviceSensorActorService_TargetReplicaSetSize" DefaultValue="1" />
   </Parameters>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="LCH.SF.PoC.IoTSensorActorsPkg" ServiceManifestVersion="1.0.0" />
-  </ServiceManifestImport>
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="LCH.SF.PoC.WhishListActorsPkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="LCH.SF.PoC.IoTSensors.ActorsPkg" ServiceManifestVersion="1.0.0" />
   </ServiceManifestImport>
   <DefaultServices>
-    <Service Name="WhishListActorService" GeneratedIdRef="fcb11506-dbf4-4974-a8e7-5e8686cef1ab|Persisted">
-      <StatefulService ServiceTypeName="WhishListActorServiceType" TargetReplicaSetSize="[WhishListActorService_TargetReplicaSetSize]" MinReplicaSetSize="[WhishListActorService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[WhishListActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-      </StatefulService>
-    </Service>
-    <Service Name="DummyActorService" GeneratedIdRef="cdf05d92-d2a3-4c9a-887c-bae3c16dec24|None">
-      <StatefulService ServiceTypeName="DummyActorServiceType" TargetReplicaSetSize="[DummyActorService_TargetReplicaSetSize]" MinReplicaSetSize="[DummyActorService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[DummyActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+    <Service Name="DeviceSensorActorService" GeneratedIdRef="aec90f08-07c9-41ec-a1b2-7c526f3a3a71|None">
+      <StatefulService ServiceTypeName="DeviceSensorActorServiceType" TargetReplicaSetSize="[DeviceSensorActorService_TargetReplicaSetSize]" MinReplicaSetSize="[DeviceSensorActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[DeviceSensorActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
   </DefaultServices>

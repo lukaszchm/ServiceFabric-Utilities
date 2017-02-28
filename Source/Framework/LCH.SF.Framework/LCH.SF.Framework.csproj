@@ -51,8 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComponentModel\Actors\ActorActivationContext.cs" />
+    <Compile Include="ComponentModel\Actors\ActorInstanceFactory.cs" />
+    <Compile Include="ComponentModel\Actors\ContainerExtensions.cs" />
     <Compile Include="ComponentModel\Actors\IActorConstructorContext.cs" />
+    <Compile Include="ComponentModel\Actors\IActorCreationContext.cs" />
     <Compile Include="ComponentModel\Actors\IActorInstanceFactory.cs" />
+    <Compile Include="ComponentModel\Actors\IoCEnabledActorBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

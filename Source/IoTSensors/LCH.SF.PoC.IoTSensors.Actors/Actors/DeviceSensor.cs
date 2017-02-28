@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LCH.SF.Framework.ComponentModel.Actors;
 using LCH.SF.PoC.IoTSensors.Common.ActorInterfaces;
-using Microsoft.ServiceFabric.Actors;
-using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace LCH.SF.PoC.IoTSensors.Actors.Actors
 {
-    public class DeviceSensor : Actor, IDeviceSensor
+    public class DeviceSensor : IoCEnabledActorBase, IDeviceSensor
     {
         /// <summary>
         /// Initializes a new instance of <see cref="T:Microsoft.ServiceFabric.Actors.Runtime.Actor" />
         /// </summary>
-        /// <param name="actorService">
-        /// The <see cref="T:Microsoft.ServiceFabric.Actors.Runtime.ActorService" /> that will host this actor instance.
-        /// </param>
-        /// <param name="actorId">
-        /// The <see cref="T:Microsoft.ServiceFabric.Actors.ActorId" /> for this actor instance.
-        /// </param>
-        public DeviceSensor(ActorService actorService, ActorId actorId) : base(actorService, actorId)
+        /// <param name="constructorContext"></param>
+        public DeviceSensor(IActorConstructorContext constructorContext) : base(constructorContext)
         {
-            
         }
-        
+
         #region Implementation of IDeviceSensor
 
         /// <summary>
@@ -32,6 +25,7 @@ namespace LCH.SF.PoC.IoTSensors.Actors.Actors
         /// <returns><see cref="Task"/></returns>
         public Task SubmitSensorData(IEnumerable<KeyValuePair<string, double>> sensorData)
         {
+            if (sensorData == null) throw new ArgumentNullException(nameof(sensorData));
             throw new System.NotImplementedException();
         }
 

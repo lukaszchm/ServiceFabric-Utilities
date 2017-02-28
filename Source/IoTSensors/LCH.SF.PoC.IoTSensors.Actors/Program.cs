@@ -9,21 +9,20 @@ namespace LCH.SF.PoC.IoTSensors.Actors
 {
     internal static class Program
     {
-        /// <summary>
-        /// This is the entry point of the service host process.
-        /// </summary>
         private static void Main()
         {
             try
             {
-                var container = new Container();
+                var container = new Container()
+                    .WithActorFactories();
+
+                container.RegisterMany(new [] { typeof(Program).Assembly}, 
+                    type=>type.IsAssignableTo(typeof(IoCEnabledActorBase)));
+
                 ActorRuntime.RegisterActorAsync<DeviceSensor>((context, typeInformation) =>
-                    new ActorService(context, typeInformation, (service, id) =>
-                    {
-                        var factory = container.Resolve<IActorInstanceFactory<DeviceSensor>>();
-                        factory.RegisterServiceAndActorId(service, id);
-                        return factory.CreateActor();
-                    })).GetAwaiter().GetResult();
+                    new ActorService(context, typeInformation, 
+                        container.ActorFactory<DeviceSensor>
+                    )).GetAwaiter().GetResult();
                 Thread.Sleep(Timeout.Infinite);
             }
             catch (Exception e)
