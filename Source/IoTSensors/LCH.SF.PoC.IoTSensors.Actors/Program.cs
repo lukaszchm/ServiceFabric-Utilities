@@ -23,6 +23,7 @@ namespace LCH.SF.PoC.IoTSensors.Actors
                     new ActorService(context, typeInformation, 
                         container.ActorFactory<DeviceSensor>
                     )).GetAwaiter().GetResult();
+
                 Thread.Sleep(Timeout.Infinite);
             }
             catch (Exception e)

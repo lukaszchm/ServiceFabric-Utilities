@@ -15,7 +15,7 @@ namespace LCH.SF.Framework.Tests
                 Parameter = context.Parameter;
             }
 
-            public object Parameter { get; private set; }
+            public object Parameter { get; }
         }
 
         public class Factory
